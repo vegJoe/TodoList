@@ -1,0 +1,39 @@
+.newTodo {
+    border: solid black 1px;
+    flex-direction: column;
+    width: 13rem;
+    height: 17rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    display: flex;
+}
+
+label {
+    flex-direction: column;
+    display: flex;
+}
+
+.newTodo .submit {
+    width: 5rem;
+}
+
+.newTodo .description {
+    height: 7rem;
+    width: 11rem;
+}
+
+.newTodo .inputTitle {
+    width: 11rem;
+}
+
+.newTodo .inputAuthor {
+    width: 11rem;
+}
+
+.newTodo .formButtons {
+    gap: 10px;
+    display: flex;
+}
