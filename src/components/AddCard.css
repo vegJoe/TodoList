@@ -11,6 +11,10 @@
     display: flex;
 }
 
+.description {
+    resize: none;
+}
+
 label {
     flex-direction: column;
     display: flex;
