@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { ICardStructure } from "../interfaces";
 import "./TodoCard.css"
+import { useTodoContext } from "../hooks/useTodoContext";
 
-export const TodoCard = ({ todoCard, onClick }: ICardStructure) => {
-
+export const TodoCard = ({ todoCard }: ICardStructure) => {
+    
+    const { handleOnDelete } = useTodoContext();
     const [isDone, setIsDone] = useState(todoCard.done);
 
     const handleOnChange = () => {
@@ -16,7 +18,7 @@ export const TodoCard = ({ todoCard, onClick }: ICardStructure) => {
         <article className="todoCard">
             <div className="cardTop">
                 <p className="title">Title: {todoCard.title}</p>
-                <button type="button" className="delete" onClick={() => onClick(todoCard)}>X</button>
+                <button type="button" className="delete" onClick={() => handleOnDelete(todoCard)}>X</button>
 
             </div>
             <p className="author">Author: {todoCard.author}</p>

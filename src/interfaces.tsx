@@ -7,16 +7,20 @@ export interface ItodoCard {
 }
 
 export interface ICardStructure {
-    onClick: (todo: ItodoCard) => void;
     todoCard: ItodoCard;
 }
 
 export interface INewCard {
-    onClick: () => void;
     addCard: (todoCards: ItodoCard) => void;
 }
 
 export interface IListAll {
     onClick: (todo: ItodoCard) => void;
-    todos: ItodoCard[]
+    todos: ItodoCard[];
+}
+
+export interface ITodoContext {
+    todoCards: ItodoCard[];
+    addCard: (todoCards: ItodoCard) => void;
+    handleOnDelete: (todo: ItodoCard) => void;
 }

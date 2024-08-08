@@ -1,15 +1,17 @@
 import React, {useState} from "react";
-import { INewCard, ItodoCard } from "../interfaces";
-import "./AddCard.css"
+import { ItodoCard } from "../interfaces";
+import "../components/AddCard.css"
+import { useTodoContext } from "../hooks/useTodoContext";
 
 
-export const AddCard = ({ addCard, onClick }: INewCard ) => {
+export const AddCardPage = () => {
 
     let [nextId, setNextId] = useState<string>();
     const [title, setTitle] = useState<string>('');
     const [author, setAuthor] = useState<string>('');
     const [todoText, setTodoText] = useState<string>('');
     const [done, setDone] = useState<boolean>(false);
+    const { addCard } = useTodoContext();
 
 
     nextId = new Date().toString();
@@ -71,7 +73,6 @@ export const AddCard = ({ addCard, onClick }: INewCard ) => {
             </div>
             <div className="formButtons">
                 <button type="submit" className="submit">New Todo</button>
-                <button type="button" className="listAll" onClick={() => onClick()}>List todo's</button>
             </div>
         </form>
     )

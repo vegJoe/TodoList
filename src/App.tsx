@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { ItodoCard } from "./interfaces";
-import { AddCard } from "./components/AddCard";
-import { ListAll } from "./components/ListAll";
+import { ItodoCard, ITodoContext } from "./interfaces";
+import { AddCardPage } from "./pages/AddCardPage";
+import { ListAllPage } from "./pages/ListAllPage";
+import { Header } from "./components/Header";
+import { Outlet } from "react-router-dom";
 
 export function App() {
   
   const [todoCards, setTodoCards] = useState<ItodoCard[]>([]);
-  let [listTodos, setListTodos] = useState<boolean>(false);
 
-  const addTodo = (todo: ItodoCard) => {
+  const addCard = (todo: ItodoCard) => {
     setTodoCards([...todoCards, todo]);
     console.log([...todoCards, todo]);
     console.log("in addTodo")
@@ -18,17 +19,18 @@ export function App() {
     setTodoCards(todoCards.filter(todo => removeTodo !== todo))
   }
 
-  const handleOnListAllClick = () => {
-    setListTodos((previousVal) => !previousVal);
+  const todoContext: ITodoContext = {
+    todoCards,
+    addCard,
+    handleOnDelete
   }
+
 
 
   return (
     <>
-      < AddCard addCard={addTodo} onClick={handleOnListAllClick}/>
-      { listTodos &&
-        < ListAll todos={todoCards} onClick={handleOnDelete} />
-      }
+      < Header />
+      < Outlet context={todoContext} />
     </>
   );
 }
