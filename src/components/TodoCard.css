@@ -10,23 +10,9 @@
 }
 
 .todoCard .cardTop {
-    justify-content: space-between;
     display: flex;
 }
 
-.todoCard .cardTop .delete {
-    margin-top: 3px;
-    margin-right: 3px;
-    height: 20px;
-}
-
-.todoCard .title {
-    font-size: large;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    display: flex;
-}
 
 .todoCard .timestamp {
     margin-top: 5px;
@@ -53,5 +39,29 @@
 
 .todoCard .checkboxDiv .done {
     margin-top: 0px;
+    display: flex;
+}
+
+.todoCard .cardTop button {
+    margin-left: 3px;
+}
+
+.todoCard .cardTop .delete {
+    margin-top: 3px;
+    margin-right: 3px;
+    height: 20px;
+}
+
+.todoCard .cardTop .sortDirection {
+    margin-top: 3px;
+    height: 20px;
+}
+
+.todoCard .cardTop .title {
+    font-size: large;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-right: 7.4rem;
+    font-weight: bold;
     display: flex;
 }

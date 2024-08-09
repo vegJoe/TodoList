@@ -3,9 +3,9 @@ import { ICardStructure } from "../interfaces";
 import "./TodoCard.css"
 import { useTodoContext } from "../hooks/useTodoContext";
 
-export const TodoCard = ({ todoCard }: ICardStructure) => {
+export const TodoCard = ({ todoCard, index }: ICardStructure & {index: number}) => {
     
-    const { handleOnDelete, handleEditText, handleSortOnName, handleSortOnTimestamp } = useTodoContext();
+    const { handleOnDelete, handleEditText, handleSortOnName, handleSortOnTimestamp, handleShiftLeft, handleShiftRight } = useTodoContext();
     const [isDone, setIsDone] = useState(todoCard.done);
     const [isEditing, setIsEditing] = useState(false);
     const [editedText, setEditedText] = useState(todoCard.todoText);
@@ -31,6 +31,8 @@ export const TodoCard = ({ todoCard }: ICardStructure) => {
 
             <div className="cardTop">
                 <p className="title">Title: {todoCard.title}</p>
+                <button className="sortDirection" onClick={() => handleShiftLeft(index)}>&lt;</button>
+                <button className="sortDirection" onClick={() => handleShiftRight(index)}>&gt;</button>
                 <button type="button" className="delete" onClick={() => handleOnDelete(todoCard)}>X</button>
 
             </div>

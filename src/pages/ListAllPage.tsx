@@ -8,8 +8,8 @@ export function ListAllPage(): ReactElement {
 
     return (
         <div className="todos">
-            {todoCards.map((todo) => (
-                <TodoCard key={todo.id} todoCard={todo} />
+            {todoCards.map((todo, index) => (
+                <TodoCard key={todo.id} todoCard={todo} index={index}/>
             ))}
         </div>
     )

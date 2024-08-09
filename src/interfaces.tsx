@@ -26,4 +26,6 @@ export interface ITodoContext {
     handleEditText: (updatedTodo: ItodoCard) => void;
     handleSortOnName: () => void;
     handleSortOnTimestamp: () => void;
+    handleShiftLeft: (index: number) => void;
+    handleShiftRight: (index: number) => void;
 }

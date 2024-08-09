@@ -27,13 +27,29 @@ export function App() {
     setTodoCards([...todoCards].sort((a, b) => a.id.localeCompare(b.id)));
   };
 
+  const handleShiftLeft = (index: number) => {
+    if(index == 0) return;
+    const tempTodoCards = [...todoCards];
+    [tempTodoCards[index - 1], tempTodoCards[index]] = [tempTodoCards[index], tempTodoCards[index - 1]];
+    setTodoCards(tempTodoCards);
+  }
+
+  const handleShiftRight = (index: number) => {
+    if(index == todoCards.length - 1) return;
+    const tempTodoCards = [...todoCards];
+    [tempTodoCards[index + 1], tempTodoCards[index]] = [tempTodoCards[index], tempTodoCards[index + 1]];
+    setTodoCards(tempTodoCards);
+  }
+
   const todoContext: ITodoContext = {
     todoCards,
     addCard,
     handleOnDelete,
     handleEditText,
     handleSortOnName,
-    handleSortOnTimestamp
+    handleSortOnTimestamp,
+    handleShiftLeft,
+    handleShiftRight
   };
 
   return (
