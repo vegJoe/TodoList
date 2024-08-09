@@ -10,7 +10,6 @@ export const AddCardPage = () => {
     const [title, setTitle] = useState<string>('');
     const [author, setAuthor] = useState<string>('');
     const [todoText, setTodoText] = useState<string>('');
-    const [done, setDone] = useState<boolean>(false);
     const { addCard } = useTodoContext();
 
 
@@ -26,8 +25,6 @@ export const AddCardPage = () => {
         todoText,
         done: false
     };
-
-        console.log(newTodoCard);
 
     addCard(newTodoCard);
     Clear();
